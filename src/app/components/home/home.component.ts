@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public audio = new Audio();
+
   constructor() { }
 
   ngOnInit() {
@@ -14,9 +16,12 @@ export class HomeComponent implements OnInit {
   }
 
  public playAudio() {
-    let audio = new Audio();
-    audio.src = '../../assets/audio/mainTheme.mp3';
-    audio.load();
-    audio.play();
+    this.audio.src = '../../assets/audio/mainTheme.mp3';
+    this.audio.load();
+    this.audio.play();
+  }
+
+  public mute() {
+    this.audio.muted = !this.audio.muted;
   }
 }
